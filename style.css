@@ -659,6 +659,55 @@ a {
 }
 
 
+/* =========================================
+   CURRENT DAY HIGHLIGHTING
+   ========================================= */
+
+/* Today's column heading */
+
+.termcard-table thead th.current-day-header {
+  background: var(--burgundy);
+  color: white;
+  border-bottom: 3px solid var(--gold);
+}
+
+/* Today's cell */
+
+.termcard-table tbody tr.current-week td.current-day {
+  background: rgba(215, 183, 123, 0.38);
+  box-shadow: inset 0 0 0 2px var(--gold);
+}
+
+/* Today's events */
+
+.term-event.today-event,
+.termcard-table tbody tr.current-week
+.term-event.today-event {
+  background: #fff3d8;
+  border: 1px solid var(--gold);
+  border-left: 4px solid var(--burgundy);
+}
+
+/* Hover effect */
+
+.term-event.today-event:hover {
+  background: #f8e5ba;
+}
+
+/* Make today's heading stand out */
+
+.current-day-header::after {
+  content: "TODAY";
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  color: var(--gold);
+}
+
+
 /* About */
 
 .about {

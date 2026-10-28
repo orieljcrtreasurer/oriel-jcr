@@ -127,6 +127,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     return week;
   }
+  
+  function calculateCurrentDay() {
+
+    // Get today's day in Oxford time
+    const dayName = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Europe/London",
+      weekday: "long"
+    }).format(new Date());
+
+    const days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ];
+
+    return days.indexOf(dayName);
+  }
+
 
   // ========================================
   // LOAD EVENTS FROM JSON
@@ -292,6 +314,14 @@ document.addEventListener("DOMContentLoaded", () => {
     button.type = "button";
     button.className = "term-event";
 
+    // Highlight events happening today
+    if (
+      event.week === actualCurrentWeek &&
+      event.day === calculateCurrentDay()
+    ) {
+      button.classList.add("today-event");
+    }
+
     const title = document.createElement("span");
     title.className = "term-event-title";
     title.textContent = event.title;
@@ -356,6 +386,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const cell = document.createElement("td");
 
+      // Highlight today, but only in the current week
+      if (
+        weekNumber === actualCurrentWeek &&
+        day === calculateCurrentDay()
+      ) {
+        cell.classList.add("current-day");
+      }
+
       const dayEvents = events
         .filter(event =>
           event.week === weekNumber &&
@@ -389,6 +427,23 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderTermCard() {
 
     tableBody.replaceChildren();
+
+    // Update the current day heading
+    const dayHeaders = table.querySelectorAll("thead th");
+
+    dayHeaders.forEach((header, index) => {
+
+      header.classList.remove("current-day-header");
+
+      // First header is "Week", so day index starts at 1
+      if (
+        actualCurrentWeek !== null &&
+        index === calculateCurrentDay() + 1
+      ) {
+        header.classList.add("current-day-header");
+      }
+
+    });
 
     if (fullTermView) {
 

@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1">
+
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+
+  <title>Admin | Oriel JCR</title>
+
+  <link rel="icon" href="../icon.ico">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="../">
+      <img src="../icon.ico" alt="" width="36" height="36">
+      <span>Oriel JCR <small>Admin</small></span>
+    </a>
+
+    <div class="top-actions">
+      <span id="connection-label">Not connected</span>
+      <button id="logout-btn" class="secondary" hidden>
+        Disconnect
+      </button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Login -->
+    <section id="login-screen" class="login-card">
+      <h1>Term Card Admin</h1>
+      <p>
+        Connect your GitHub account to edit
+        and publish the JCR term card.
+      </p>
+
+      <form id="login-form">
+        <label for="token-input">
+          GitHub Personal Access Token
+        </label>
+        <input
+          id="token-input"
+          type="password"
+          placeholder="github_pat_..."
+          autocomplete="off"
+          required
+        >
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="remember-token">
+          Remember token on this device
+        </label>
+
+        <p class="hint">
+          Only use this on a trusted device.
+          Remembering a token stores it in
+          browser localStorage.
+        </p>
+
+        <button type="submit" id="connect-btn"
+                class="primary">
+          Connect to GitHub
+        </button>
+      </form>
+
+      <p id="login-message" class="message"
+         role="status" aria-live="polite"></p>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" hidden>
+
+      <div class="page-heading">
+        <div>
+          <h1>Term Card Editor</h1>
+          <p id="term-summary">Loading term card...</p>
+        </div>
+
+        <div class="toolbar">
+          <button id="reload-btn" class="secondary">
+            Reload from GitHub
+          </button>
+          <button id="publish-btn" class="primary">
+            Publish Changes
+          </button>
+        </div>
+      </div>
+
+      <div id="status-message" class="message"
+           role="status" aria-live="polite"></div>
+
+      <div class="editor-layout">
+
+        <!-- Events list -->
+        <section class="panel">
+          <div class="panel-heading">
+            <h2>Events</h2>
+            <button id="add-event-btn" class="primary">
+              + Add Event
+            </button>
+          </div>
+
+          <div class="filters">
+            <label for="filter-week">Week</label>
+            <select id="filter-week">
+              <option value="all">All weeks</option>
+              <option value="0">Week 0</option>
+              <option value="1">Week 1</option>
+              <option value="2">Week 2</option>
+              <option value="3">Week 3</option>
+              <option value="4">Week 4</option>
+              <option value="5">Week 5</option>
+              <option value="6">Week 6</option>
+              <option value="7">Week 7</option>
+              <option value="8">Week 8</option>
+            </select>
+
+            <input id="search-events"
+                   type="search"
+                   placeholder="Search events...">
+          </div>
+
+          <div id="events-list" class="events-list"></div>
+        </section>
+
+        <!-- Editor -->
+        <section class="panel">
+          <h2 id="editor-heading">Term Settings</h2>
+
+          <form id="term-form" class="form-grid">
+            <label>
+              Term name
+              <input id="term-name" required
+                     placeholder="Michaelmas">
+            </label>
+
+            <label>
+              Year
+              <input id="term-year" type="number"
+                     min="2000" max="2100" required>
+            </label>
+
+            <label class="full-width">
+              Week 0 start date
+              <input id="term-start" type="date" required>
+            </label>
+
+            <button type="submit" class="secondary full-width">
+              Save Term Settings
+            </button>
+          </form>
+
+          <hr>
+
+          <h2 id="event-form-heading">Add / Edit Event</h2>
+
+          <form id="event-form" class="form-grid">
+            <label class="full-width">
+              Event name
+              <input id="event-name" required
+                     placeholder="JCR Quiz Night">
+            </label>
+
+            <label>
+              Week
+              <select id="event-week" required>
+                <option value="0">Week 0</option>
+                <option value="1">Week 1</option>
+                <option value="2">Week 2</option>
+                <option value="3">Week 3</option>
+                <option value="4">Week 4</option>
+                <option value="5">Week 5</option>
+                <option value="6">Week 6</option>
+                <option value="7">Week 7</option>
+                <option value="8">Week 8</option>
+              </select>
+            </label>
+
+            <label>
+              Day
+              <select id="event-day" required>
+                <option value="0">Sunday</option>
+                <option value="1">Monday</option>
+                <option value="2">Tuesday</option>
+                <option value="3">Wednesday</option>
+                <option value="4">Thursday</option>
+                <option value="5">Friday</option>
+                <option value="6">Saturday</option>
+              </select>
+            </label>
+
+            <label>
+              Time
+              <input id="event-time" type="time">
+            </label>
+
+            <label>
+              Location
+              <input id="event-location"
+                     placeholder="JCR">
+            </label>
+
+            <div class="form-actions full-width">
+              <button type="submit" class="primary">
+                Save Event
+              </button>
+              <button type="button" id="cancel-edit"
+                      class="secondary">
+                Clear
+              </button>
+              <button type="button" id="delete-event"
+                      class="danger" hidden>
+                Delete Event
+              </button>
+            </div>
+          </form>
+        </section>
+
+      </div>
+
+      <!-- Recurring events -->
+      <section class="panel recurring-panel">
+        <div class="panel-heading">
+          <h2>Recurring Events</h2>
+          <button id="add-recurring" class="secondary">
+            + Add Recurring Event
+          </button>
+        </div>
+
+        <div id="recurring-list"></div>
+      </section>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    Oriel JCR · Term Card Administration
+  </footer>
+
+</body>
+</html>

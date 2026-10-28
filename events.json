@@ -1,4 +1,3 @@
-
 {
   "term": "Michaelmas",
   "year": 2026,
@@ -147,13 +146,6 @@
     },
     {
       "week": 5,
-      "day": 1,
-      "title": "Formal Swap w New",
-      "time": "18:30",
-      "location": "Hall"
-    },
-    {
-      "week": 5,
       "day": 2,
       "title": "Reading and Tea",
       "time": "15:30",
@@ -165,13 +157,6 @@
       "title": "Karaoke w Catz",
       "time": "20:00",
       "location": "Big Society"
-    },
-    {
-      "week": 5,
-      "day": 4,
-      "title": "Clare College Formal Swap",
-      "time": null,
-      "location": null
     },
     {
       "week": 5,
@@ -249,6 +234,55 @@
       "title": "Xmas Megabop",
       "time": null,
       "location": null
+    },
+    {
+      "week": 2,
+      "day": 3,
+      "title": "University Challenge Round 1",
+      "time": "19:00",
+      "location": "MacGregor Room"
+    },
+    {
+      "week": 3,
+      "day": 1,
+      "title": "University Challenge Round 1",
+      "time": "19:00",
+      "location": "MacGregor Room"
+    },
+    {
+      "week": 4,
+      "day": 3,
+      "title": "University Challenge Round 2",
+      "time": "19:00",
+      "location": "MacGregor Room"
+    },
+    {
+      "week": 4,
+      "day": 4,
+      "title": "University Challenge Round 2",
+      "time": "19:00",
+      "location": "MacGregor Room"
+    },
+    {
+      "week": 5,
+      "day": 2,
+      "title": "Formal Swap with St John's",
+      "time": "18:40",
+      "location": "Oriel"
+    },
+    {
+      "week": 5,
+      "day": 4,
+      "title": "Formal Swap with St John's",
+      "time": "18:00",
+      "location": "St John's"
+    },
+    {
+      "week": 5,
+      "day": 4,
+      "title": "Formal Swap with Clare C*mbridge",
+      "time": "15:30",
+      "location": "Clare, C*mbridge"
     }
   ]
 }

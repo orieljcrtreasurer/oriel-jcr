@@ -82,7 +82,51 @@ document.addEventListener("DOMContentLoaded", () => {
   let events = [];
 
   let currentWeek = 0;
+  let actualCurrentWeek = null;
   let fullTermView = false;
+
+  // Calculate the current Oxford term week
+  function calculateCurrentWeek(startDate) {
+
+    // Get today's date in UK time
+    const todayString = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "Europe/London",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).format(new Date());
+
+    const [year, month, day] = todayString
+      .split("-")
+      .map(Number);
+
+    const [startYear, startMonth, startDay] = startDate
+      .split("-")
+      .map(Number);
+
+    // Compare calendar dates rather than timestamps
+    // to avoid daylight saving time issues
+    const todayUTC = Date.UTC(year, month - 1, day);
+
+    const startUTC = Date.UTC(
+      startYear,
+      startMonth - 1,
+      startDay
+    );
+
+    const daysSinceStart = Math.floor(
+      (todayUTC - startUTC) / 86400000
+    );
+
+    const week = Math.floor(daysSinceStart / 7);
+
+    // null means outside Weeks 0-8
+    if (week < 0 || week > 8) {
+      return null;
+    }
+
+    return week;
+  }
 
   // ========================================
   // LOAD EVENTS FROM JSON
@@ -92,14 +136,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
 
-      const response = await fetch("events.json", {
-        cache: "no-cache"
-      });
+      const response = await fetch("events.json", {cache: "no-cache"});
 
       if (!response.ok) {
-        throw new Error(
-          `Failed to load events: ${response.status}`
-        );
+        throw new Error(`Failed to load events: ${response.status}`);
       }
 
       const data = await response.json();
@@ -109,6 +149,28 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       events = data.events;
+
+      // Work out the current week from events.json
+      actualCurrentWeek = data.startDate
+        ? calculateCurrentWeek(data.startDate)
+        : null;
+
+      // Automatically open the current week
+      if (actualCurrentWeek !== null) {
+        currentWeek = actualCurrentWeek;
+      } else {
+        // Before term: Week 0
+        // After term: Week 8
+        const todayString = new Intl.DateTimeFormat("en-CA", {
+          timeZone: "Europe/London",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        }).format(new Date());
+
+        currentWeek = todayString < data.startDate ? 0 : 8;
+      }
+
 
       // Update term heading
       const termHeading = document.querySelector(
@@ -163,6 +225,33 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       renderTermCard();
+
+      
+      // Recheck the current week periodically
+      setInterval(() => {
+
+        const startDate = termStartDate;
+
+        if (!startDate) return;
+
+        const newWeek = calculateCurrentWeek(startDate);
+
+        if (newWeek !== actualCurrentWeek) {
+
+          const wasShowingCurrentWeek =
+            currentWeek === actualCurrentWeek;
+
+          actualCurrentWeek = newWeek;
+
+          if (wasShowingCurrentWeek && newWeek !== null) {
+            currentWeek = newWeek;
+          }
+
+          renderTermCard();
+        }
+
+      }, 60000);
+
 
     } catch (error) {
 
@@ -239,9 +328,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const row = document.createElement("tr");
 
+    // Highlight the current week
+    if (weekNumber === actualCurrentWeek) {
+      row.classList.add("current-week");
+    }
+
+
     const weekCell = document.createElement("th");
     weekCell.scope = "row";
     weekCell.textContent = weekNumber;
+
+    // Add a label to the current week
+    if (weekNumber === actualCurrentWeek) {
+
+      const badge = document.createElement("span");
+
+      badge.className = "current-week-badge";
+      badge.textContent = "Current";
+
+      weekCell.appendChild(badge);
+    }
+
 
     row.appendChild(weekCell);
 

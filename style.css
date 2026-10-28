@@ -603,6 +603,62 @@ a {
   }
 }
 
+
+/* =========================================
+   CURRENT WEEK HIGHLIGHTING
+   ========================================= */
+
+/* Highlight the current week's cells */
+
+.termcard-table tbody tr.current-week td {
+  background: rgba(215, 183, 123, 0.16);
+}
+
+/* Current week number */
+
+.termcard-table tbody tr.current-week th {
+  background: var(--navy);
+  color: white;
+  border-left: 4px solid var(--gold);
+}
+
+/* Current week badge */
+
+.current-week-badge {
+  display: block;
+  width: fit-content;
+  margin: 8px auto 0;
+  padding: 3px 7px;
+
+  background: var(--gold);
+  color: var(--navy-dark);
+
+  border-radius: 4px;
+
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Make the current row stand out */
+
+.termcard-table tbody tr.current-week {
+  outline: 2px solid var(--gold);
+  outline-offset: -2px;
+}
+
+/* Keep event cards readable */
+
+.termcard-table tbody tr.current-week .term-event {
+  background: #fff8ec;
+  border-left-color: var(--burgundy);
+}
+
+.termcard-table tbody tr.current-week .term-event:hover {
+  background: #f7e8c8;
+}
+
+
 /* About */
 
 .about {

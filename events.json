@@ -1,0 +1,253 @@
+
+{
+  "term": "Michaelmas",
+  "year": 2026,
+  "recurringEvents": [
+    {
+      "title": "Open Meetings",
+      "day": "Sunday",
+      "time": "21:15",
+      "location": "JCR"
+    }
+  ],
+  "events": [
+    {
+      "week": 0,
+      "day": 0,
+      "title": "Freshers Welcome Drinks",
+      "time": "20:00",
+      "location": "JCR"
+    },
+    {
+      "week": 0,
+      "day": 5,
+      "title": "Beer Pong Tournament",
+      "time": "19:00",
+      "location": "Bar"
+    },
+    {
+      "week": 0,
+      "day": 6,
+      "title": "‘White Lies’ BOP",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 1,
+      "day": 2,
+      "title": "Snacks and Chats",
+      "time": "15:30",
+      "location": "JCR"
+    },
+    {
+      "week": 1,
+      "day": 3,
+      "title": "1st w 2nd+3rd year Crew Date",
+      "time": "20:30",
+      "location": "Jamal’s"
+    },
+    {
+      "week": 1,
+      "day": 5,
+      "title": "Oriel Fridays",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 2,
+      "day": 0,
+      "title": "Walk w Various Colleges",
+      "time": "15:00",
+      "location": "Meadow + Gardens"
+    },
+    {
+      "week": 2,
+      "day": 5,
+      "title": "College Bar Crawl w Pembroke",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 2,
+      "day": 5,
+      "title": "Ice skating",
+      "time": "18:45",
+      "location": "Alts"
+    },
+    {
+      "week": 2,
+      "day": 6,
+      "title": "D&MH Snacks",
+      "time": "14:00",
+      "location": "Bar"
+    },
+    {
+      "week": 3,
+      "day": 0,
+      "title": "Tea w Pembroke",
+      "time": "15:00",
+      "location": "Pembroke JCR"
+    },
+    {
+      "week": 3,
+      "day": 2,
+      "title": "Halloween Megabop",
+      "time": null,
+      "location": "Jukebox"
+    },
+    {
+      "week": 3,
+      "day": 4,
+      "title": "LGBTQ+ Snacks",
+      "time": "19:00",
+      "location": "JCR"
+    },
+    {
+      "week": 3,
+      "day": 5,
+      "title": "Oriel Fright-days",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 4,
+      "day": 2,
+      "title": "Formal Swap w New",
+      "time": "18:15",
+      "location": "New Col Hall"
+    },
+    {
+      "week": 4,
+      "day": 3,
+      "title": "Arts n Crafts w Wadham",
+      "time": "15:30",
+      "location": "JCR"
+    },
+    {
+      "week": 4,
+      "day": 5,
+      "title": "BOP w BNC + Exeter",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 5,
+      "day": 0,
+      "title": "Walk w Hilda’s + Peter’s",
+      "time": "15:00",
+      "location": "Ashmolean"
+    },
+    {
+      "week": 5,
+      "day": 1,
+      "title": "Baking",
+      "time": "15:30",
+      "location": null
+    },
+    {
+      "week": 5,
+      "day": 1,
+      "title": "Formal Swap w New",
+      "time": "18:30",
+      "location": "Hall"
+    },
+    {
+      "week": 5,
+      "day": 2,
+      "title": "Reading and Tea",
+      "time": "15:30",
+      "location": "JCR"
+    },
+    {
+      "week": 5,
+      "day": 3,
+      "title": "Karaoke w Catz",
+      "time": "20:00",
+      "location": "Big Society"
+    },
+    {
+      "week": 5,
+      "day": 4,
+      "title": "Clare College Formal Swap",
+      "time": null,
+      "location": null
+    },
+    {
+      "week": 5,
+      "day": 4,
+      "title": "Movie Night",
+      "time": "20:00",
+      "location": "JCR"
+    },
+    {
+      "week": 5,
+      "day": 5,
+      "title": "JCR Guest Night Formal",
+      "time": "18:30",
+      "location": "Hall"
+    },
+    {
+      "week": 5,
+      "day": 6,
+      "title": "Arts n Crafts",
+      "time": "15:30",
+      "location": "JCR"
+    },
+    {
+      "week": 6,
+      "day": 4,
+      "title": "E&CM Board Games",
+      "time": "18:00",
+      "location": "JCR"
+    },
+    {
+      "week": 6,
+      "day": 5,
+      "title": "Open Mic Oriel Fridays",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 6,
+      "day": 6,
+      "title": "Dumb Ways to Die BOP",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 7,
+      "day": 0,
+      "title": "Walk w Various Colleges",
+      "time": "15:00",
+      "location": "Pitt Rivers Museum"
+    },
+    {
+      "week": 7,
+      "day": 3,
+      "title": "Oxmas Drinks + Treats",
+      "time": "19:00",
+      "location": "JCR"
+    },
+    {
+      "week": 7,
+      "day": 5,
+      "title": "Karaoke Oriel Fridays",
+      "time": "20:00",
+      "location": "Bar"
+    },
+    {
+      "week": 8,
+      "day": 3,
+      "title": "Oxmas Arts n Crafts",
+      "time": "15:30",
+      "location": "Keble JCR"
+    },
+    {
+      "week": 8,
+      "day": 5,
+      "title": "Xmas Megabop",
+      "time": null,
+      "location": null
+    }
+  ]
+}

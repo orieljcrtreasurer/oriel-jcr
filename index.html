@@ -41,6 +41,7 @@
 
       <div class="nav-links" id="nav-links">
         <a href="#resources">Links</a>
+        <a href="#termcard">Term Card</a>
         <a href="#about">About</a>
       </div>
 
@@ -113,6 +114,123 @@
       </div>
 
     </section>
+
+    <!-- Term Card -->
+    <section class="termcard-section section" id="termcard">
+
+      <div class="termcard-container">
+
+        <div class="termcard-header">
+
+          <img src="feathers.png" alt="Oriel Feathers" class="termcard-feathers">
+
+          <div class="termcard-title">
+            <h2>Michaelmas 2026</h2>
+            <p>JCR Term Card</p>
+          </div>
+
+        </div>
+
+        <div class="termcard-info">
+          <strong>Recurring Events</strong>
+          <p>Open Meetings: Sundays 21:15 in the JCR</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="termcard-controls">
+
+          <div class="week-navigation">
+
+            <button id="prev-week" class="week-arrow" aria-label="Previous week">←</button>
+
+            <label for="week-select" class="sr-only">Select week</label>
+
+            <select name="week-select" id="week-select">
+              <option value="0">Week 0</option>
+              <option value="1">Week 1</option>
+              <option value="2">Week 2</option>
+              <option value="3">Week 3</option>
+              <option value="4">Week 4</option>
+              <option value="5">Week 5</option>
+              <option value="6">Week 6</option>
+              <option value="7">Week 7</option>
+              <option value="8">Week 8</option>
+            </select>
+
+            <button id="next-week" class="week-arrow" aria-label="Next week">→</button>
+
+          </div>
+
+          <button id="toggle-term" class="term-view-button" aria-pressed="false">View Full Term</button>
+
+        </div>
+
+        <!-- Timetable -->
+        <div class="termcard-table-wrapper">
+
+          <div class="termcard-watermark" aria-hidden="true"></div>
+
+          <table class="termcard-table">
+
+            <thead>
+              <tr>
+                <th scope="col">Week</th>
+                <th scope="col">Sun</th>
+                <th scope="col">Mon</th>
+                <th scope="col">Tue</th>
+                <th scope="col">Wed</th>
+                <th scope="col">Thu</th>
+                <th scope="col">Fri</th>
+                <th scope="col">Sat</th>
+              </tr>
+            </thead>
+
+            <tbody id="termcard-body">
+              <!-- Events inserted by JavaScript -->
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <p class="termcard-help">
+          Click an event for more details.
+          Swipe horizontally on mobile to see the week.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- Event Details Dialog -->
+     <dialog id="event-dialog" class="event-dialog">
+
+      <div class="event-dialog-content">
+
+        <button id="close-event" class="close-event" aria-label="Close event details">×</button>
+
+        <span id="event-week" class="event-week-label"></span>
+
+        <h2 id="event-title"></h2>
+
+        <div class="event-detail">
+          <span>Day</span>
+          <strong id="event-day"></strong>
+        </div>
+
+        <div class="event-detail">
+          <span>Time</span>
+          <strong id="event-time"></strong>
+        </div>
+
+        <div class="event-detail">
+          <span>Location</span>
+          <strong id="event-location"></strong>
+        </div>
+
+      </div>
+
+     </dialog>
 
     <!-- About -->
     <section class="about section" id="about">

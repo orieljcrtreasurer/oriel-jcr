@@ -103,6 +103,41 @@ a {
   cursor: pointer;
 }
 
+/* =========================================
+   ADMIN NAVIGATION BUTTON
+   ========================================= */
+
+.admin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 7px 13px;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+
+  color: var(--gold) !important;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+
+.admin-link:hover {
+  background: rgba(215, 183, 123, 0.12);
+}
+
+/* Ensure hidden attribute actually hides it */
+.admin-link[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .admin-link {
+    width: fit-content;
+  }
+}
+
+
 /* Sections */
 
 .section {

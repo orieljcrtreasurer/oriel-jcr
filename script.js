@@ -43,6 +43,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   }
+  
+  // ========================================
+  // ADMIN BUTTON VISIBILITY
+  // ========================================
+
+  const adminLink = document.getElementById("admin-link");
+
+  if (adminLink) {
+
+    const savedToken = localStorage.getItem(
+      "oriel-jcr-admin-token"
+    );
+
+    // Show Admin button if a token is saved
+    if (savedToken) {
+      adminLink.hidden = false;
+    }
+
+  }
+
 
   // ========================================
   // TERM CARD ELEMENTS

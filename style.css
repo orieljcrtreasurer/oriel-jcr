@@ -225,6 +225,10 @@ a {
   margin-bottom: 20px;
 }
 
+.card-icon img {
+  object-fit: contain;
+}
+
 .resource-card h2 {
   font-family: 'Playfair Display', serif;
   font-size: 23px;
